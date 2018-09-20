@@ -1,6 +1,6 @@
 this is my study of vuejs
 
-#memo
+# memo
 ## CDN vue.js
 
 ```
