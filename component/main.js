@@ -33,6 +33,14 @@ Vue.component('comp-child2', {
   }
 })
 
+Vue.component('my-component-a', {
+  template: '<div class="my-component-a">component A</div>'
+})
+
+Vue.component('my-component-b', {
+  template: '<div class="my-component-b">component B</div>'
+})
+
 var app = new Vue({
   el: '#app',
   data: {
@@ -41,7 +49,14 @@ var app = new Vue({
       { id: 1, name: 'スライム', hp: 100 },
       { id: 2, name: 'ゴブリん', hp: 200 },
       { id: 3, name: 'ドラゴン', hp: 500 },
-    ]
+    ],
+    componentTypes: ['my-component-a', 'my-component-b'],
+    current: 0,
+  },
+  computed: {
+    component: function() {
+      return this.componentTypes[this.current]
+    }
   },
   methods: {
     handleAttack: function(id) {

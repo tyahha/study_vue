@@ -15,6 +15,12 @@
           v-bind="item"
           v-on:attack="handleAttack"></comp-child2>
       </ul>
+      <div>
+        <hr>
+        <h1>動的なコンポーネント</h1>
+        <button @click="current^=1">toggle</button>
+        <div v-bind:is="component"></div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js"></script>
