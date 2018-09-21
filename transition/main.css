@@ -1,0 +1,43 @@
+.demo-enter-active, .demo-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+
+.demo-enter {
+  opacity: 0;
+  transform: translateY(300px);
+}
+
+.demo-leave-to {
+  opacity: 0;
+  transform: translateY(300px);
+}
+
+.ab-enter-active, .ab-leave-active {
+  transition: opacity 1s;
+  position: absolute;
+}
+
+.ab-enter {
+  opacity: 0;
+}
+
+.ab-leave-to {
+  opacity: 0;
+}
+
+.count-enter-active, .count-leave-active {
+  transition: opacity 0.25s;
+  position: absolute;
+}
+
+.count-enter {
+  opacity: 0;
+}
+
+.count-leave-to {
+  opacity: 0;
+}
+
+.v-move {
+  transition: transform 1s;
+}

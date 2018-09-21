@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <button @click="show=!show">切り替え</button>
+      <transition name="demo">
+        <div v-show="show">トランジションさせたい要素</div>
+      </transition>
+      <transition name="ab">
+        <div v-if="show" key="a">A</div>
+        <div v-else key="b">B</div> 
+      </transition>
+      <hr>
+      <button @click="count++">切り替え</button>
+      <transition name="count" mode="out-in">
+        <div v-bind:key="count">{{ count }}</div>
+      </transition>
+      <div>
+        <hr>
+        <h1>リストトランジション</h1>
+        <button @click="order=!order">切り替え</button>
+        <transition-group tag="ul" class="list">
+          <li v-for="item in sortedList" v-bind:key="item.id">
+            {{ item.name }} {{ item.price }}円
+          </li>
+        </transition-group>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
