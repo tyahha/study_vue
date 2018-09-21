@@ -7,7 +7,24 @@
   </head>
   <body>
     <div id="app">
-      <button v-on:click="handleClick">Click</button>
+      <p><button v-on:click="handleClick">v-on:Click</button></p>
+      <p><button @click="handleClick">@Click</button></p>
+      <p><button @click="count++">Count++</button></p>
+      <p>Count:{{ count }}</p>
+    </div>
+    <div>
+      <h1>バブリングを止めない</h1>
+      <div onclick="console.log('div1')">
+        div1
+        <a href="#top" onclick="console.log('aaa')">div2</a>
+      </div>
+    </div>
+    <div>
+      <h1>バブリングを止める</h1>
+      <div @click="log('div1')">
+        div1
+        <a href="#top" @click.stop="log('div2')">div2</a>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="main.js"></script>
