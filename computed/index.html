@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ width }} の半分は {{ halfWidth }}</p>
+      <p>halfPoint.x: {{halfPoint.x}}</p>
+      <p>halfPoint.y: {{halfPoint.y}}</p>
+      <p>width:<input v-model.number="width"></p>
+      <p>half width:<input v-model.number="halfWidth"></p>
+      <hr>
+      <h1>computedのキャッシュ(computedとmethodsの違い)</h1>
+      <h2>computed data</h2>
+      <ol>
+        <li>{{ computedData }}</li>
+        <li>{{ computedData }}</li>
+      </ol>
+      <h2>methods data</h2>
+      <ol>
+        <li>{{ methodsData() }}</li>
+        <li>{{ methodsData() }}</li>
+      </ol>
+      <hr>
+      <div>
+        <h1>リストの絞り込みやソート</h1>
+        <input v-model.number="budget"> 円以下に絞り込む
+        <input v-model.number="limit"> 件を表示
+        <p>{{ matched.length }} 件中 {{ limited.length }} 件を表示中</p>
+        <p><button @click="order=!order">ソート切替</button></p>
+        <ul>
+          <!-- v-forでは最終結果、算出プロパティのlimitedを使用する -->
+          <li v-for="item in limited" v-bind:key="item.id">
+            {{ item.name }} {{ item.price }}円
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
