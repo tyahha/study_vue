@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js App</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="value">
+      <p>{{ value }}</p>
+      <hr>
+      <div>
+        <h1>フォームを監視してAPIからデータを取得する</h1>
+        <select v-model="current">
+          <option v-for="topic in topics" v-bind:value="topic.value">
+            {{ topic.name }}
+          </option>
+        </select>
+        <div v-for="item in list">{{ item.full_name }}</div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
